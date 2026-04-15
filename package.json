@@ -1,0 +1,42 @@
+{
+  "name": "ai-code-graph",
+  "version": "0.1.0",
+  "description": "TypeScript knowledge graph: save LLM tokens, understand codebases faster, build shared knowledge—compact MCP search, incremental sync, optional review.",
+  "license": "MIT",
+  "type": "commonjs",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "ai-code-graph": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "axios": "^1.6.0",
+    "commander": "^12.0.0",
+    "fast-glob": "^3.3.2",
+    "jiti": "^1.21.0",
+    "typescript": "^5.4.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0"
+  }
+}

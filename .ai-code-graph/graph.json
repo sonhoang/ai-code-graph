@@ -1,0 +1,1049 @@
+{
+  "version": 1,
+  "generatedAt": "2026-04-15T14:06:24.428Z",
+  "root": "/Users/sonhoang/Documents/CST/ai-code-graph",
+  "nodes": [
+    {
+      "id": "file:src/cli.ts",
+      "kind": "file",
+      "path": "src/cli.ts"
+    },
+    {
+      "id": "sym:src/cli.ts#L13:main",
+      "kind": "function",
+      "name": "main",
+      "file": "src/cli.ts",
+      "line": 13,
+      "detail": "async function main(): Promise<void> { const program = new Command(); program .name(\"ai-code-graph\") .description(\"Build…"
+    },
+    {
+      "id": "file:src/commands/create.ts",
+      "kind": "file",
+      "path": "src/commands/create.ts"
+    },
+    {
+      "id": "sym:src/commands/create.ts#L11:runCreate",
+      "kind": "function",
+      "name": "runCreate",
+      "file": "src/commands/create.ts",
+      "line": 11,
+      "detail": "export async function runCreate(cwd: string, config: ResolvedConfig): Promise<void> { const outDir = resolveOutputDir(cw…"
+    },
+    {
+      "id": "sym:src/commands/create.ts#L40:isTs",
+      "kind": "function",
+      "name": "isTs",
+      "file": "src/commands/create.ts",
+      "line": 40,
+      "detail": "function isTs(abs: string): boolean { return abs.endsWith(\".ts\") || abs.endsWith(\".tsx\") || abs.endsWith(\".mts\") || abs.…"
+    },
+    {
+      "id": "file:src/commands/review.ts",
+      "kind": "file",
+      "path": "src/commands/review.ts"
+    },
+    {
+      "id": "sym:src/commands/review.ts#L6:runReview",
+      "kind": "function",
+      "name": "runReview",
+      "file": "src/commands/review.ts",
+      "line": 6,
+      "detail": "export async function runReview(cwd: string, config: ResolvedConfig): Promise<void> { const outDir = resolveOutputDir(cw…"
+    },
+    {
+      "id": "file:src/commands/sync.ts",
+      "kind": "file",
+      "path": "src/commands/sync.ts"
+    },
+    {
+      "id": "sym:src/commands/sync.ts#L10:runSync",
+      "kind": "function",
+      "name": "runSync",
+      "file": "src/commands/sync.ts",
+      "line": 10,
+      "detail": "export async function runSync(cwd: string, config: ResolvedConfig): Promise<void> { const outDir = resolveOutputDir(cwd,…"
+    },
+    {
+      "id": "sym:src/commands/sync.ts#L53:isTs",
+      "kind": "function",
+      "name": "isTs",
+      "file": "src/commands/sync.ts",
+      "line": 53,
+      "detail": "function isTs(abs: string): boolean { return abs.endsWith(\".ts\") || abs.endsWith(\".tsx\") || abs.endsWith(\".mts\") || abs.…"
+    },
+    {
+      "id": "file:src/config/defineConfig.ts",
+      "kind": "file",
+      "path": "src/config/defineConfig.ts"
+    },
+    {
+      "id": "sym:src/config/defineConfig.ts#L3:defineConfig",
+      "kind": "function",
+      "name": "defineConfig",
+      "file": "src/config/defineConfig.ts",
+      "line": 3,
+      "detail": "export function defineConfig(config: AiCodeGraphConfig): AiCodeGraphConfig { return config; }"
+    },
+    {
+      "id": "file:src/config/loadConfig.ts",
+      "kind": "file",
+      "path": "src/config/loadConfig.ts"
+    },
+    {
+      "id": "sym:src/config/loadConfig.ts#L27:ResolvedConfig",
+      "kind": "type",
+      "name": "ResolvedConfig",
+      "file": "src/config/loadConfig.ts",
+      "line": 27,
+      "detail": "export type ResolvedConfig = Required< Pick<AiCodeGraphConfig, \"include\" | \"exclude\" | \"outputDir\"> > & AiCodeGraphConfi…"
+    },
+    {
+      "id": "sym:src/config/loadConfig.ts#L34:LlmResolved",
+      "kind": "type",
+      "name": "LlmResolved",
+      "file": "src/config/loadConfig.ts",
+      "line": 34,
+      "detail": "type LlmResolved = { provider: \"openai\"; model: string; baseURL: string; apiKey: string | undefined; };"
+    },
+    {
+      "id": "sym:src/config/loadConfig.ts#L41:mergeLlm",
+      "kind": "function",
+      "name": "mergeLlm",
+      "file": "src/config/loadConfig.ts",
+      "line": 41,
+      "detail": "function mergeLlm(base: LlmResolved, patch?: AiCodeGraphConfig[\"llm\"]): LlmResolved { return { provider: \"openai\", model…"
+    },
+    {
+      "id": "sym:src/config/loadConfig.ts#L50:loadConfig",
+      "kind": "function",
+      "name": "loadConfig",
+      "file": "src/config/loadConfig.ts",
+      "line": 50,
+      "detail": "export function loadConfig(cwd: string): ResolvedConfig { let fileConfig: AiCodeGraphConfig = {}; for (const name of CON…"
+    },
+    {
+      "id": "sym:src/config/loadConfig.ts#L83:resolveOutputDir",
+      "kind": "function",
+      "name": "resolveOutputDir",
+      "file": "src/config/loadConfig.ts",
+      "line": 83,
+      "detail": "export function resolveOutputDir(cwd: string, outputDir: string): string { return path.resolve(cwd, outputDir); }"
+    },
+    {
+      "id": "file:src/graph/merge.ts",
+      "kind": "file",
+      "path": "src/graph/merge.ts"
+    },
+    {
+      "id": "sym:src/graph/merge.ts#L3:collectIdsToRemove",
+      "kind": "function",
+      "name": "collectIdsToRemove",
+      "file": "src/graph/merge.ts",
+      "line": 3,
+      "detail": "function collectIdsToRemove(relFile: string, nodes: GraphNode[]): Set<string> { const drop = new Set<string>(); const po…"
+    },
+    {
+      "id": "sym:src/graph/merge.ts#L17:replaceFileInGraph",
+      "kind": "function",
+      "name": "replaceFileInGraph",
+      "file": "src/graph/merge.ts",
+      "line": 17,
+      "detail": "export function replaceFileInGraph( doc: GraphDocument, relFile: string, nextNodes: GraphNode[], nextEdges: GraphEdge[] …"
+    },
+    {
+      "id": "sym:src/graph/merge.ts#L29:stripDeletedFiles",
+      "kind": "function",
+      "name": "stripDeletedFiles",
+      "file": "src/graph/merge.ts",
+      "line": 29,
+      "detail": "export function stripDeletedFiles(doc: GraphDocument, deletedRelFiles: string[]): GraphDocument { let out = doc; for (co…"
+    },
+    {
+      "id": "sym:src/graph/merge.ts#L42:emptyGraph",
+      "kind": "function",
+      "name": "emptyGraph",
+      "file": "src/graph/merge.ts",
+      "line": 42,
+      "detail": "export function emptyGraph(root: string): GraphDocument { return { version: 1, generatedAt: new Date().toISOString(), ro…"
+    },
+    {
+      "id": "file:src/graph/overview.ts",
+      "kind": "file",
+      "path": "src/graph/overview.ts"
+    },
+    {
+      "id": "sym:src/graph/overview.ts#L3:isSymbol",
+      "kind": "function",
+      "name": "isSymbol",
+      "file": "src/graph/overview.ts",
+      "line": 3,
+      "detail": "function isSymbol(n: GraphDocument[\"nodes\"][number]): n is GraphSymbolNode { return n.kind !== \"file\"; }"
+    },
+    {
+      "id": "sym:src/graph/overview.ts#L8:renderOverview",
+      "kind": "function",
+      "name": "renderOverview",
+      "file": "src/graph/overview.ts",
+      "line": 8,
+      "detail": "export function renderOverview(doc: GraphDocument): string { const files = doc.nodes.filter(n => n.kind === \"file\") as A…"
+    },
+    {
+      "id": "sym:src/graph/overview.ts#L59:edgeFromLabel",
+      "kind": "function",
+      "name": "edgeFromLabel",
+      "file": "src/graph/overview.ts",
+      "line": 59,
+      "detail": "function edgeFromLabel(id: string): string { if (id.startsWith(\"file:\")) return id.slice(\"file:\".length); return id; }"
+    },
+    {
+      "id": "sym:src/graph/overview.ts#L64:edgeToLabel",
+      "kind": "function",
+      "name": "edgeToLabel",
+      "file": "src/graph/overview.ts",
+      "line": 64,
+      "detail": "function edgeToLabel(id: string): string { if (id.startsWith(\"file:\")) return id.slice(\"file:\".length); return id; }"
+    },
+    {
+      "id": "file:src/graph/paths.ts",
+      "kind": "file",
+      "path": "src/graph/paths.ts"
+    },
+    {
+      "id": "sym:src/graph/paths.ts#L3:normalizeRelPath",
+      "kind": "function",
+      "name": "normalizeRelPath",
+      "file": "src/graph/paths.ts",
+      "line": 3,
+      "detail": "export function normalizeRelPath(root: string, absPath: string): string { const rel = path.relative(root, absPath); retu…"
+    },
+    {
+      "id": "sym:src/graph/paths.ts#L8:toPosix",
+      "kind": "function",
+      "name": "toPosix",
+      "file": "src/graph/paths.ts",
+      "line": 8,
+      "detail": "export function toPosix(p: string): string { return p.split(path.sep).join(\"/\"); }"
+    },
+    {
+      "id": "file:src/graph/store.ts",
+      "kind": "file",
+      "path": "src/graph/store.ts"
+    },
+    {
+      "id": "sym:src/graph/store.ts#L5:graphPath",
+      "kind": "function",
+      "name": "graphPath",
+      "file": "src/graph/store.ts",
+      "line": 5,
+      "detail": "export function graphPath(dir: string): string { return path.join(dir, \"graph.json\"); }"
+    },
+    {
+      "id": "sym:src/graph/store.ts#L9:metaPath",
+      "kind": "function",
+      "name": "metaPath",
+      "file": "src/graph/store.ts",
+      "line": 9,
+      "detail": "export function metaPath(dir: string): string { return path.join(dir, \"meta.json\"); }"
+    },
+    {
+      "id": "sym:src/graph/store.ts#L13:reviewPath",
+      "kind": "function",
+      "name": "reviewPath",
+      "file": "src/graph/store.ts",
+      "line": 13,
+      "detail": "export function reviewPath(dir: string): string { return path.join(dir, \"review.md\"); }"
+    },
+    {
+      "id": "sym:src/graph/store.ts#L17:overviewPath",
+      "kind": "function",
+      "name": "overviewPath",
+      "file": "src/graph/store.ts",
+      "line": 17,
+      "detail": "export function overviewPath(dir: string): string { return path.join(dir, \"overview.md\"); }"
+    },
+    {
+      "id": "sym:src/graph/store.ts#L21:ensureDir",
+      "kind": "function",
+      "name": "ensureDir",
+      "file": "src/graph/store.ts",
+      "line": 21,
+      "detail": "export function ensureDir(dir: string): void { fs.mkdirSync(dir, { recursive: true }); }"
+    },
+    {
+      "id": "sym:src/graph/store.ts#L25:readGraph",
+      "kind": "function",
+      "name": "readGraph",
+      "file": "src/graph/store.ts",
+      "line": 25,
+      "detail": "export function readGraph(dir: string): GraphDocument | null { const p = graphPath(dir); if (!fs.existsSync(p)) return n…"
+    },
+    {
+      "id": "sym:src/graph/store.ts#L31:readMeta",
+      "kind": "function",
+      "name": "readMeta",
+      "file": "src/graph/store.ts",
+      "line": 31,
+      "detail": "export function readMeta(dir: string): GraphMeta { const p = metaPath(dir); if (!fs.existsSync(p)) return { version: 1, …"
+    },
+    {
+      "id": "sym:src/graph/store.ts#L37:writeGraph",
+      "kind": "function",
+      "name": "writeGraph",
+      "file": "src/graph/store.ts",
+      "line": 37,
+      "detail": "export function writeGraph(dir: string, doc: GraphDocument): void { ensureDir(dir); fs.writeFileSync(graphPath(dir), JSO…"
+    },
+    {
+      "id": "sym:src/graph/store.ts#L42:writeMeta",
+      "kind": "function",
+      "name": "writeMeta",
+      "file": "src/graph/store.ts",
+      "line": 42,
+      "detail": "export function writeMeta(dir: string, meta: GraphMeta): void { ensureDir(dir); fs.writeFileSync(metaPath(dir), JSON.str…"
+    },
+    {
+      "id": "sym:src/graph/store.ts#L47:writeReview",
+      "kind": "function",
+      "name": "writeReview",
+      "file": "src/graph/store.ts",
+      "line": 47,
+      "detail": "export function writeReview(dir: string, md: string): void { ensureDir(dir); fs.writeFileSync(reviewPath(dir), md, \"utf8…"
+    },
+    {
+      "id": "sym:src/graph/store.ts#L52:writeOverview",
+      "kind": "function",
+      "name": "writeOverview",
+      "file": "src/graph/store.ts",
+      "line": 52,
+      "detail": "export function writeOverview(dir: string, md: string): void { ensureDir(dir); fs.writeFileSync(overviewPath(dir), md, \"…"
+    },
+    {
+      "id": "file:src/graph/types.ts",
+      "kind": "file",
+      "path": "src/graph/types.ts"
+    },
+    {
+      "id": "sym:src/graph/types.ts#L1:GraphNodeKind",
+      "kind": "type",
+      "name": "GraphNodeKind",
+      "file": "src/graph/types.ts",
+      "line": 1,
+      "detail": "export type GraphNodeKind = | \"file\" | \"function\" | \"class\" | \"interface\" | \"type\" | \"enum\" | \"variable\" | \"namespace\";"
+    },
+    {
+      "id": "sym:src/graph/types.ts#L11:GraphEdgeKind",
+      "kind": "type",
+      "name": "GraphEdgeKind",
+      "file": "src/graph/types.ts",
+      "line": 11,
+      "detail": "export type GraphEdgeKind = | \"imports\" | \"exports_to\" | \"contains\" | \"extends\" | \"implements\" | \"references_type\";"
+    },
+    {
+      "id": "sym:src/graph/types.ts#L19:GraphFileNode",
+      "kind": "type",
+      "name": "GraphFileNode",
+      "file": "src/graph/types.ts",
+      "line": 19,
+      "detail": "export type GraphFileNode = { id: string; kind: \"file\"; path: string; };"
+    },
+    {
+      "id": "sym:src/graph/types.ts#L25:GraphSymbolNode",
+      "kind": "type",
+      "name": "GraphSymbolNode",
+      "file": "src/graph/types.ts",
+      "line": 25,
+      "detail": "export type GraphSymbolNode = { id: string; kind: Exclude<GraphNodeKind, \"file\">; name: string; file: string; line: numb…"
+    },
+    {
+      "id": "sym:src/graph/types.ts#L35:GraphNode",
+      "kind": "type",
+      "name": "GraphNode",
+      "file": "src/graph/types.ts",
+      "line": 35,
+      "detail": "export type GraphNode = GraphFileNode | GraphSymbolNode;"
+    },
+    {
+      "id": "sym:src/graph/types.ts#L37:GraphEdge",
+      "kind": "type",
+      "name": "GraphEdge",
+      "file": "src/graph/types.ts",
+      "line": 37,
+      "detail": "export type GraphEdge = { from: string; to: string; kind: GraphEdgeKind; /** Original module specifier when kind is impo…"
+    },
+    {
+      "id": "sym:src/graph/types.ts#L45:GraphDocument",
+      "kind": "type",
+      "name": "GraphDocument",
+      "file": "src/graph/types.ts",
+      "line": 45,
+      "detail": "export type GraphDocument = { version: 1; generatedAt: string; root: string; nodes: GraphNode[]; edges: GraphEdge[]; };"
+    },
+    {
+      "id": "sym:src/graph/types.ts#L53:GraphMeta",
+      "kind": "type",
+      "name": "GraphMeta",
+      "file": "src/graph/types.ts",
+      "line": 53,
+      "detail": "export type GraphMeta = { version: 1; lastSyncAt?: string; files: Record< string, { hash: string; } >; };"
+    },
+    {
+      "id": "sym:src/graph/types.ts#L64:LlmConfig",
+      "kind": "type",
+      "name": "LlmConfig",
+      "file": "src/graph/types.ts",
+      "line": 64,
+      "detail": "export type LlmConfig = { provider?: \"openai\"; model?: string; baseURL?: string; apiKey?: string; };"
+    },
+    {
+      "id": "sym:src/graph/types.ts#L71:AiCodeGraphConfig",
+      "kind": "type",
+      "name": "AiCodeGraphConfig",
+      "file": "src/graph/types.ts",
+      "line": 71,
+      "detail": "export type AiCodeGraphConfig = { /** Glob patterns, relative to project root */ include?: string[]; exclude?: string[];…"
+    },
+    {
+      "id": "file:src/index.ts",
+      "kind": "file",
+      "path": "src/index.ts"
+    },
+    {
+      "id": "file:src/llm/openaiCompatible.ts",
+      "kind": "file",
+      "path": "src/llm/openaiCompatible.ts"
+    },
+    {
+      "id": "sym:src/llm/openaiCompatible.ts#L4:chatCompletion",
+      "kind": "function",
+      "name": "chatCompletion",
+      "file": "src/llm/openaiCompatible.ts",
+      "line": 4,
+      "detail": "export async function chatCompletion( llm: ResolvedConfig[\"llm\"], userMessage: string, system = \"You are a senior engine…"
+    },
+    {
+      "id": "file:src/scanner/tsScanner.ts",
+      "kind": "file",
+      "path": "src/scanner/tsScanner.ts"
+    },
+    {
+      "id": "sym:src/scanner/tsScanner.ts#L8:hashContent",
+      "kind": "function",
+      "name": "hashContent",
+      "file": "src/scanner/tsScanner.ts",
+      "line": 8,
+      "detail": "export function hashContent(s: string): string { return crypto.createHash(\"sha256\").update(s, \"utf8\").digest(\"hex\"); }"
+    },
+    {
+      "id": "sym:src/scanner/tsScanner.ts#L12:symId",
+      "kind": "function",
+      "name": "symId",
+      "file": "src/scanner/tsScanner.ts",
+      "line": 12,
+      "detail": "function symId(rel: string, name: string, line: number): string { return `sym:${toPosix(rel)}#L${line}:${name}`; }"
+    },
+    {
+      "id": "sym:src/scanner/tsScanner.ts#L16:resolveImportTarget",
+      "kind": "function",
+      "name": "resolveImportTarget",
+      "file": "src/scanner/tsScanner.ts",
+      "line": 16,
+      "detail": "function resolveImportTarget(root: string, importerAbs: string, specifier: string): string | null { if (specifier.starts…"
+    },
+    {
+      "id": "sym:src/scanner/tsScanner.ts#L34:getName",
+      "kind": "function",
+      "name": "getName",
+      "file": "src/scanner/tsScanner.ts",
+      "line": 34,
+      "detail": "function getName(node: ts.Node): string | null { if (ts.isModuleDeclaration(node)) { if (ts.isIdentifier(node.name)) ret…"
+    },
+    {
+      "id": "sym:src/scanner/tsScanner.ts#L45:lineOf",
+      "kind": "function",
+      "name": "lineOf",
+      "file": "src/scanner/tsScanner.ts",
+      "line": 45,
+      "detail": "function lineOf(sf: ts.SourceFile, node: ts.Node): number { const pos = node.getStart(sf, false); return sf.getLineAndCh…"
+    },
+    {
+      "id": "sym:src/scanner/tsScanner.ts#L50:textPreview",
+      "kind": "function",
+      "name": "textPreview",
+      "file": "src/scanner/tsScanner.ts",
+      "line": 50,
+      "detail": "function textPreview(sf: ts.SourceFile, node: ts.Node, max = 120): string | undefined { const t = node.getText(sf).repla…"
+    },
+    {
+      "id": "sym:src/scanner/tsScanner.ts#L56:scanTypeScriptFile",
+      "kind": "function",
+      "name": "scanTypeScriptFile",
+      "file": "src/scanner/tsScanner.ts",
+      "line": 56,
+      "detail": "export function scanTypeScriptFile(absPath: string, content: string, root: string): { rel: string; nodes: GraphNode[]; e…"
+    },
+    {
+      "id": "sym:src/scanner/tsScanner.ts#L90:visit",
+      "kind": "function",
+      "name": "visit",
+      "file": "src/scanner/tsScanner.ts",
+      "line": 90,
+      "detail": "visit = (node: ts.Node): void => { let symKind: GraphSymbolNode[\"kind\"] | null = null; if (ts.isFunctionDeclaration(node…"
+    }
+  ],
+  "edges": [
+    {
+      "from": "file:src/cli.ts",
+      "to": "ext:commander",
+      "kind": "imports",
+      "specifier": "commander"
+    },
+    {
+      "from": "file:src/cli.ts",
+      "to": "ext:fs",
+      "kind": "imports",
+      "specifier": "fs"
+    },
+    {
+      "from": "file:src/cli.ts",
+      "to": "ext:path",
+      "kind": "imports",
+      "specifier": "path"
+    },
+    {
+      "from": "file:src/cli.ts",
+      "to": "file:src/config/loadConfig.ts",
+      "kind": "imports",
+      "specifier": "./config/loadConfig"
+    },
+    {
+      "from": "file:src/cli.ts",
+      "to": "file:src/commands/create.ts",
+      "kind": "imports",
+      "specifier": "./commands/create"
+    },
+    {
+      "from": "file:src/cli.ts",
+      "to": "file:src/commands/sync.ts",
+      "kind": "imports",
+      "specifier": "./commands/sync"
+    },
+    {
+      "from": "file:src/cli.ts",
+      "to": "file:src/commands/review.ts",
+      "kind": "imports",
+      "specifier": "./commands/review"
+    },
+    {
+      "from": "file:src/cli.ts",
+      "to": "sym:src/cli.ts#L13:main",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/commands/create.ts",
+      "to": "ext:fs",
+      "kind": "imports",
+      "specifier": "fs"
+    },
+    {
+      "from": "file:src/commands/create.ts",
+      "to": "ext:fast-glob",
+      "kind": "imports",
+      "specifier": "fast-glob"
+    },
+    {
+      "from": "file:src/commands/create.ts",
+      "to": "file:src/config/loadConfig.ts",
+      "kind": "imports",
+      "specifier": "../config/loadConfig"
+    },
+    {
+      "from": "file:src/commands/create.ts",
+      "to": "file:src/graph/merge.ts",
+      "kind": "imports",
+      "specifier": "../graph/merge"
+    },
+    {
+      "from": "file:src/commands/create.ts",
+      "to": "file:src/graph/types.ts",
+      "kind": "imports",
+      "specifier": "../graph/types"
+    },
+    {
+      "from": "file:src/commands/create.ts",
+      "to": "file:src/graph/store.ts",
+      "kind": "imports",
+      "specifier": "../graph/store"
+    },
+    {
+      "from": "file:src/commands/create.ts",
+      "to": "file:src/graph/overview.ts",
+      "kind": "imports",
+      "specifier": "../graph/overview"
+    },
+    {
+      "from": "file:src/commands/create.ts",
+      "to": "file:src/scanner/tsScanner.ts",
+      "kind": "imports",
+      "specifier": "../scanner/tsScanner"
+    },
+    {
+      "from": "file:src/commands/create.ts",
+      "to": "file:src/graph/paths.ts",
+      "kind": "imports",
+      "specifier": "../graph/paths"
+    },
+    {
+      "from": "file:src/commands/create.ts",
+      "to": "sym:src/commands/create.ts#L11:runCreate",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/commands/create.ts",
+      "to": "sym:src/commands/create.ts#L40:isTs",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/commands/review.ts",
+      "to": "ext:fs",
+      "kind": "imports",
+      "specifier": "fs"
+    },
+    {
+      "from": "file:src/commands/review.ts",
+      "to": "file:src/config/loadConfig.ts",
+      "kind": "imports",
+      "specifier": "../config/loadConfig"
+    },
+    {
+      "from": "file:src/commands/review.ts",
+      "to": "file:src/graph/store.ts",
+      "kind": "imports",
+      "specifier": "../graph/store"
+    },
+    {
+      "from": "file:src/commands/review.ts",
+      "to": "file:src/llm/openaiCompatible.ts",
+      "kind": "imports",
+      "specifier": "../llm/openaiCompatible"
+    },
+    {
+      "from": "file:src/commands/review.ts",
+      "to": "sym:src/commands/review.ts#L6:runReview",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/commands/sync.ts",
+      "to": "ext:fs",
+      "kind": "imports",
+      "specifier": "fs"
+    },
+    {
+      "from": "file:src/commands/sync.ts",
+      "to": "ext:fast-glob",
+      "kind": "imports",
+      "specifier": "fast-glob"
+    },
+    {
+      "from": "file:src/commands/sync.ts",
+      "to": "file:src/config/loadConfig.ts",
+      "kind": "imports",
+      "specifier": "../config/loadConfig"
+    },
+    {
+      "from": "file:src/commands/sync.ts",
+      "to": "file:src/graph/merge.ts",
+      "kind": "imports",
+      "specifier": "../graph/merge"
+    },
+    {
+      "from": "file:src/commands/sync.ts",
+      "to": "file:src/graph/store.ts",
+      "kind": "imports",
+      "specifier": "../graph/store"
+    },
+    {
+      "from": "file:src/commands/sync.ts",
+      "to": "file:src/graph/overview.ts",
+      "kind": "imports",
+      "specifier": "../graph/overview"
+    },
+    {
+      "from": "file:src/commands/sync.ts",
+      "to": "file:src/scanner/tsScanner.ts",
+      "kind": "imports",
+      "specifier": "../scanner/tsScanner"
+    },
+    {
+      "from": "file:src/commands/sync.ts",
+      "to": "file:src/graph/paths.ts",
+      "kind": "imports",
+      "specifier": "../graph/paths"
+    },
+    {
+      "from": "file:src/commands/sync.ts",
+      "to": "sym:src/commands/sync.ts#L10:runSync",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/commands/sync.ts",
+      "to": "sym:src/commands/sync.ts#L53:isTs",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/config/defineConfig.ts",
+      "to": "file:src/graph/types.ts",
+      "kind": "imports",
+      "specifier": "../graph/types"
+    },
+    {
+      "from": "file:src/config/defineConfig.ts",
+      "to": "sym:src/config/defineConfig.ts#L3:defineConfig",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/config/loadConfig.ts",
+      "to": "ext:fs",
+      "kind": "imports",
+      "specifier": "fs"
+    },
+    {
+      "from": "file:src/config/loadConfig.ts",
+      "to": "ext:path",
+      "kind": "imports",
+      "specifier": "path"
+    },
+    {
+      "from": "file:src/config/loadConfig.ts",
+      "to": "ext:jiti",
+      "kind": "imports",
+      "specifier": "jiti"
+    },
+    {
+      "from": "file:src/config/loadConfig.ts",
+      "to": "file:src/graph/types.ts",
+      "kind": "imports",
+      "specifier": "../graph/types"
+    },
+    {
+      "from": "file:src/config/loadConfig.ts",
+      "to": "sym:src/config/loadConfig.ts#L27:ResolvedConfig",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/config/loadConfig.ts",
+      "to": "sym:src/config/loadConfig.ts#L34:LlmResolved",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/config/loadConfig.ts",
+      "to": "sym:src/config/loadConfig.ts#L41:mergeLlm",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/config/loadConfig.ts",
+      "to": "sym:src/config/loadConfig.ts#L50:loadConfig",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/config/loadConfig.ts",
+      "to": "sym:src/config/loadConfig.ts#L83:resolveOutputDir",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/graph/merge.ts",
+      "to": "file:src/graph/types.ts",
+      "kind": "imports",
+      "specifier": "./types"
+    },
+    {
+      "from": "file:src/graph/merge.ts",
+      "to": "sym:src/graph/merge.ts#L3:collectIdsToRemove",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/graph/merge.ts",
+      "to": "sym:src/graph/merge.ts#L17:replaceFileInGraph",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/graph/merge.ts",
+      "to": "sym:src/graph/merge.ts#L29:stripDeletedFiles",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/graph/merge.ts",
+      "to": "sym:src/graph/merge.ts#L42:emptyGraph",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/graph/overview.ts",
+      "to": "file:src/graph/types.ts",
+      "kind": "imports",
+      "specifier": "./types"
+    },
+    {
+      "from": "file:src/graph/overview.ts",
+      "to": "sym:src/graph/overview.ts#L3:isSymbol",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/graph/overview.ts",
+      "to": "sym:src/graph/overview.ts#L8:renderOverview",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/graph/overview.ts",
+      "to": "sym:src/graph/overview.ts#L59:edgeFromLabel",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/graph/overview.ts",
+      "to": "sym:src/graph/overview.ts#L64:edgeToLabel",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/graph/paths.ts",
+      "to": "ext:path",
+      "kind": "imports",
+      "specifier": "path"
+    },
+    {
+      "from": "file:src/graph/paths.ts",
+      "to": "sym:src/graph/paths.ts#L3:normalizeRelPath",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/graph/paths.ts",
+      "to": "sym:src/graph/paths.ts#L8:toPosix",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/graph/store.ts",
+      "to": "ext:fs",
+      "kind": "imports",
+      "specifier": "fs"
+    },
+    {
+      "from": "file:src/graph/store.ts",
+      "to": "ext:path",
+      "kind": "imports",
+      "specifier": "path"
+    },
+    {
+      "from": "file:src/graph/store.ts",
+      "to": "file:src/graph/types.ts",
+      "kind": "imports",
+      "specifier": "./types"
+    },
+    {
+      "from": "file:src/graph/store.ts",
+      "to": "sym:src/graph/store.ts#L5:graphPath",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/graph/store.ts",
+      "to": "sym:src/graph/store.ts#L9:metaPath",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/graph/store.ts",
+      "to": "sym:src/graph/store.ts#L13:reviewPath",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/graph/store.ts",
+      "to": "sym:src/graph/store.ts#L17:overviewPath",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/graph/store.ts",
+      "to": "sym:src/graph/store.ts#L21:ensureDir",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/graph/store.ts",
+      "to": "sym:src/graph/store.ts#L25:readGraph",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/graph/store.ts",
+      "to": "sym:src/graph/store.ts#L31:readMeta",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/graph/store.ts",
+      "to": "sym:src/graph/store.ts#L37:writeGraph",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/graph/store.ts",
+      "to": "sym:src/graph/store.ts#L42:writeMeta",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/graph/store.ts",
+      "to": "sym:src/graph/store.ts#L47:writeReview",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/graph/store.ts",
+      "to": "sym:src/graph/store.ts#L52:writeOverview",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/graph/types.ts",
+      "to": "sym:src/graph/types.ts#L1:GraphNodeKind",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/graph/types.ts",
+      "to": "sym:src/graph/types.ts#L11:GraphEdgeKind",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/graph/types.ts",
+      "to": "sym:src/graph/types.ts#L19:GraphFileNode",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/graph/types.ts",
+      "to": "sym:src/graph/types.ts#L25:GraphSymbolNode",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/graph/types.ts",
+      "to": "sym:src/graph/types.ts#L35:GraphNode",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/graph/types.ts",
+      "to": "sym:src/graph/types.ts#L37:GraphEdge",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/graph/types.ts",
+      "to": "sym:src/graph/types.ts#L45:GraphDocument",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/graph/types.ts",
+      "to": "sym:src/graph/types.ts#L53:GraphMeta",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/graph/types.ts",
+      "to": "sym:src/graph/types.ts#L64:LlmConfig",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/graph/types.ts",
+      "to": "sym:src/graph/types.ts#L71:AiCodeGraphConfig",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/index.ts",
+      "to": "file:src/graph/types.ts",
+      "kind": "exports_to",
+      "specifier": "./graph/types"
+    },
+    {
+      "from": "file:src/index.ts",
+      "to": "file:src/config/defineConfig.ts",
+      "kind": "exports_to",
+      "specifier": "./config/defineConfig"
+    },
+    {
+      "from": "file:src/llm/openaiCompatible.ts",
+      "to": "ext:axios",
+      "kind": "imports",
+      "specifier": "axios"
+    },
+    {
+      "from": "file:src/llm/openaiCompatible.ts",
+      "to": "file:src/config/loadConfig.ts",
+      "kind": "imports",
+      "specifier": "../config/loadConfig"
+    },
+    {
+      "from": "file:src/llm/openaiCompatible.ts",
+      "to": "sym:src/llm/openaiCompatible.ts#L4:chatCompletion",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/scanner/tsScanner.ts",
+      "to": "ext:fs",
+      "kind": "imports",
+      "specifier": "fs"
+    },
+    {
+      "from": "file:src/scanner/tsScanner.ts",
+      "to": "ext:path",
+      "kind": "imports",
+      "specifier": "path"
+    },
+    {
+      "from": "file:src/scanner/tsScanner.ts",
+      "to": "ext:crypto",
+      "kind": "imports",
+      "specifier": "crypto"
+    },
+    {
+      "from": "file:src/scanner/tsScanner.ts",
+      "to": "ext:typescript",
+      "kind": "imports",
+      "specifier": "typescript"
+    },
+    {
+      "from": "file:src/scanner/tsScanner.ts",
+      "to": "file:src/graph/paths.ts",
+      "kind": "imports",
+      "specifier": "../graph/paths"
+    },
+    {
+      "from": "file:src/scanner/tsScanner.ts",
+      "to": "file:src/graph/types.ts",
+      "kind": "imports",
+      "specifier": "../graph/types"
+    },
+    {
+      "from": "file:src/scanner/tsScanner.ts",
+      "to": "sym:src/scanner/tsScanner.ts#L8:hashContent",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/scanner/tsScanner.ts",
+      "to": "sym:src/scanner/tsScanner.ts#L12:symId",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/scanner/tsScanner.ts",
+      "to": "sym:src/scanner/tsScanner.ts#L16:resolveImportTarget",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/scanner/tsScanner.ts",
+      "to": "sym:src/scanner/tsScanner.ts#L34:getName",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/scanner/tsScanner.ts",
+      "to": "sym:src/scanner/tsScanner.ts#L45:lineOf",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/scanner/tsScanner.ts",
+      "to": "sym:src/scanner/tsScanner.ts#L50:textPreview",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/scanner/tsScanner.ts",
+      "to": "sym:src/scanner/tsScanner.ts#L56:scanTypeScriptFile",
+      "kind": "contains"
+    },
+    {
+      "from": "file:src/scanner/tsScanner.ts",
+      "to": "sym:src/scanner/tsScanner.ts#L90:visit",
+      "kind": "contains"
+    }
+  ]
+}
